@@ -44,7 +44,7 @@ end)
 
 local flags_event = hs.eventtap.new({ hs.eventtap.event.types.flagsChanged }, function(e)
   local flags = e:getFlags()
-  if flags.ctrl and flags.shift then
+  if flags.ctrl and flags.alt then
     fromPoint = hs.mouse.getAbsolutePosition()
     rectanglePreview:setFrame(hs.geometry.rect(fromPoint.x, fromPoint.y, 0, 0))
     drag_event:start()
