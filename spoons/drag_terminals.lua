@@ -50,6 +50,15 @@ local flags_event = hs.eventtap.new({ hs.eventtap.event.types.flagsChanged }, fu
     drag_event:start()
     rectanglePreview:show()
   elseif fromPoint ~= nil then
+    local toPoint = hs.mouse.getAbsolutePosition()
+    if toPoint.x - fromPoint.x < 300 then
+      rectanglePreview:hide()
+      return nil
+    end
+    if toPoint.y - fromPoint.y < 300 then
+      rectanglePreview:hide()
+      return nil
+    end
     fromPoint = nil
     drag_event:stop()
     rectanglePreview:hide()
