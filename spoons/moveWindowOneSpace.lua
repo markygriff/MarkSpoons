@@ -27,7 +27,13 @@ end
 hs.hotkey.bind(hyper, "H", function()
   moveToSpace("left")
 end)
+hs.hotkey.bind(hyper, "Left", function()
+  moveToSpace("left")
+end)
 
 hs.hotkey.bind(hyper, "L", function()
+  moveToSpace("right")
+end)
+hs.hotkey.bind(hyper, "Right", function()
   moveToSpace("right")
 end)
