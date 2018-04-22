@@ -1,5 +1,5 @@
 -- Bound to capslock
-local hyper = {"ctrl", "shift"}
+local hyper = {"ctrl", "alt"}
 
 function moveToSpace(space)
   local win = hs.window.frontmostWindow()
@@ -8,8 +8,13 @@ function moveToSpace(space)
   local longSleepTime = 300000
   local mousePosition = hs.mouse.getAbsolutePosition()
 
-  clickPoint.x = clickPoint.x + clickPoint.w + 5
-  clickPoint.y = clickPoint.y + clickPoint.h / 2
+  if win:application():name()=='Google Chrome' then
+    clickPoint.x = clickPoint.x + clickPoint.w + 7
+    clickPoint.y = clickPoint.y - clickPoint.h / 2
+  else
+    clickPoint.x = clickPoint.x + clickPoint.w + 7
+    clickPoint.y = clickPoint.y + clickPoint.h / 2
+  end
 
   hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseDown, clickPoint):post()
 
